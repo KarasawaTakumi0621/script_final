@@ -1,24 +1,6 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
-
-<p>
-  <strong>Bio:</strong>
-  <%= @user.bio %>
-</p>
-
-<p>
-  <strong>Age:</strong>
-  <%= @user.age %>
-</p>
-
-<p>
-  <strong>Thumbnail image url:</strong>
-  <%= @user.thumbnail_image_url %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<h1><%= @user[:name] %></h1>
+<p><%= @user[:username] %></p>
+<ul>
+    <li>Location : <%= @user[:location] %></li>
+    <li>About   : <%= @user[:about] %></li>
+</ul>
