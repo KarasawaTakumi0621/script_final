@@ -10,4 +10,5 @@ has_many :tweets
 
   validates :name, presence: true
   validates :about, length: { maximum: 200 }
+  mount_uploader :image, ImageUploader
 end

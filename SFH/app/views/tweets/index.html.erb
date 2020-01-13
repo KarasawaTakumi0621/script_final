@@ -1,5 +1,48 @@
+<%
+=begin%>
+ 
 <% @tweets.each do |tweet| %>
-  <h1><%= tweet.title %></h1>
-  <p><%= tweet.content %></p>
+  <div class="tweetBox">
+    <img src=<%= tweet.user.image %> class="iconImage">
+    <h4 class="tweetTitle"><%= tweet.title %></h4>
+    <p class="tweetContent"><%= tweet.content %></p>
+  </div>
 <% end %>
-<%= button_to "Tweet", {controller: 'tweets', action: 'new'}, {method: :get} %>
+
+<%= button_to "Tweet", {controller: 'tweets', action: 'new'}, {method: :get, class: "btn btn-primary"} %> 
+<%
+=end%>
+
+
+
+
+
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">
+    <div class="page-header">
+        <h1 id="timeline">Timeline</h1>
+    </div>
+    <ul class="timeline">
+
+      <% @tweets.each do |tweet| %>
+          <li>
+            <div class="timeline-badge"> <img src=<%= tweet.user.image %> class="iconImage"> </div>
+            <div class="timeline-panel">
+              <div class="timeline-heading">
+                <h4 class="timeline-title"><%= tweet.title %></h4>
+              </div>
+              <div class="timeline-body">
+              <%= tweet.content %>
+              </div>
+            </div>
+          </li>
+          <li>
+      <% end %>
+    </ul>
+    <%= button_to "Tweet", {controller: 'tweets', action: 'new'}, {method: :get, class: "btn btn-primary tweet-button"} %>
+</div>

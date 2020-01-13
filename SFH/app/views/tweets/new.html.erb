@@ -1,7 +1,20 @@
-<%= form_for Tweet.new do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.label :content %>
-  <%= f.text_area :content %>
-  <%= f.submit %>
+<div class="container">
+
+<%= form_for @tweet do |f| %>
+
+    <% if @tweet.errors.any? %>
+      <h3>入力した内容にエラーが<%= @tweet.errors.count %>件あります</h3>
+      <ul>
+        <% @tweet.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
+
+  <%= f.label :title, "タイトル" %>
+  <%= f.text_field :title, {class: 'form-control bottom-margin'} %>
+  <%= f.label :content, "本文" %>
+  <%= f.text_area :content, {class: 'form-control bottom-margin'} %>
+  <%= f.submit "ツイートする！", {class: "btn btn-primary"} %>
 <% end %>
+</div>
